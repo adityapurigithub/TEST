@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="table-layout">
+        <table>
+          <tr>
+            <th>Machine Name</th>
+            <th>Machine Id</th>
+            <th>Energy Consumed</th>
+            <th>Active Power (MW)</th>
+            <th>Apparent Power (MVA)</th>
+            <th>Reactive Power (MVAr)</th>
+            <th>Current (amps)</th>
+            <th>Voltage</th>
+            <th>Power Factor</th>
+            <th>Idle Time</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      var row = document.getElementsByTagName("tr");
+      fetch("./data.json")
+        .then((resp) => resp.json())
+        .then((data) => {
+          for (let i = 1; i < row.length; i++) {
+            for (let j = 0; j < row[i].childElementCount; j++) {
+              row[i].children[j].innerText = data.body[j];
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
